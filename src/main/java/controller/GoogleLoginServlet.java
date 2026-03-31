@@ -25,7 +25,7 @@ public class GoogleLoginServlet extends HttpServlet {
         }
 
         try {
-            // 🔹 Step 1: Exchange code for token
+            //  Step 1: Exchange code for token
             URL url = new URL("https://oauth2.googleapis.com/token");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
@@ -70,12 +70,12 @@ public class GoogleLoginServlet extends HttpServlet {
             String name = userJson.getString("name");
             String email = userJson.getString("email");
 
-            // 🔥 Step 3: Session
+            //  Step 3: Session
             HttpSession session = request.getSession();
             session.setAttribute("username", name);
             session.setAttribute("email", email);
 
-            // 🔥 Step 4: Redirect
+            //  Step 4: Redirect
             response.sendRedirect("dashboard.jsp");
 
         } catch (Exception e) {
